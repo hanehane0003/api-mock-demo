@@ -32,6 +32,21 @@ jobs:
 
       - name: Build
         run: npm run build
+        
+      # ← 追加: docs を dist/docs にコピー（存在すれば）
+      - name: Copy docs
+        run: |
+          if [ -d docs ]; then
+            mkdir -p dist/docs
+            cp -r docs/* dist/docs/
+          fi
+
+      # ← 追加: ルートの openapi.yaml を dist にコピー（存在すれば）
+      - name: Copy openapi spec
+        run: |
+          if [ -f openapi.yaml ]; then
+            cp openapi.yaml dist/openapi.yaml
+          fi
 
       - name: Add 404 fallback for SPA
         run: cp dist/index.html dist/404.html

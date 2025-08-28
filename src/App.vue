@@ -1,10 +1,13 @@
 <script setup lang="ts">
+
 /**
  * Composition API とユーティリティの取り込み
  */
 import { ref, computed } from 'vue'
 import { faker } from '@faker-js/faker'   // ダミーデータ生成
 import yaml from 'js-yaml'                 // OpenAPI(YAML) → オブジェクト変換
+
+const base: string = import.meta.env.BASE_URL; // 例: '/api-mock-demo/'
 
 // ---- 型定義（セレクトの候補） ------------------------------------------
 type HttpMethod = 'GET'|'POST'|'PUT'|'DELETE'
@@ -217,6 +220,35 @@ function onOpenApiUpload(e: Event) {
   <!-- レイアウト：2カラム（左：入力、右：プレビュー） -->
   <main class="max-w-6xl mx-auto p-4 space-y-4">
     <h1 class="text-2xl font-bold">API Mock Generator</h1>
+
+<script setup lang="ts">
+// 既存の import/状態の下あたりに1行だけ追加
+const base = import.meta.env.BASE_URL; // 例: '/api-mock-demo/'
+</script>
+
+<template>
+  <main class="max-w-6xl mx-auto p-4 space-y-4">
+    <!-- ヘッダーにナビを追加 -->
+    <div class="flex items-center justify-between">
+      <h1 class="text-2xl font-bold">API Mock Generator</h1>
+
+      <!-- リンク -->
+      <nav class="flex gap-3 text-sm">
+        <a :href="base + 'docs/'" target="_blank" rel="noopener" class="underline text-blue-600">
+          API Docs (Swagger)
+        </a>
+        <a :href="base + 'docs/redoc.html'" target="_blank" rel="noopener" class="underline text-blue-600">
+          API Docs (Redoc)
+        </a>
+      </nav>
+    </div>
+
+    <!-- 以下、あなたの既存のUI -->
+    <!-- … -->
+  </main>
+</template>
+
+
     <p class="text-sm text-gray-600">モック生成 / MSW出力 / OpenAPI→スキーマ</p>
 
     <div class="grid md:grid-cols-2 gap-4">

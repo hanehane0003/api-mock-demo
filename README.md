@@ -25,3 +25,4 @@ OpenAPI (YAML/JSON) から **モックJSON** と **MSWハンドラ** を即生�
 npm install
 npm run dev
 # http://localhost:5173
+
