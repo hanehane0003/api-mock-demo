@@ -2,7 +2,7 @@ name: Deploy Vite site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -25,14 +25,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install
         run: npm ci
 
       - name: Build
         run: npm run build
-        
+
       # ← 追加: docs を dist/docs にコピー（存在すれば）
       - name: Copy docs
         run: |
@@ -41,11 +41,12 @@ jobs:
             cp -r docs/* dist/docs/
           fi
 
-      # ← 追加: ルートの openapi.yaml を dist にコピー（存在すれば）
-      - name: Copy openapi spec
+      - name: Copy OpenAPI spec to dist and dist/docs
         run: |
           if [ -f openapi.yaml ]; then
+            mkdir -p dist/docs
             cp openapi.yaml dist/openapi.yaml
+            cp openapi.yaml dist/docs/openapi.yaml
           fi
 
       - name: Add 404 fallback for SPA

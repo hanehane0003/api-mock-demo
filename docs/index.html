@@ -11,16 +11,11 @@
 <body>
     <div id="swagger-ui"></div>
     <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
-    <script>
-        window.onload = () => {
-            SwaggerUIBundle({
-                // openapi.yaml を docs と同じ場所に置くなら 'openapi.yaml'
-                // ルートに置くなら '../openapi.yaml'
-                url: '../openapi.yaml',
-                dom_id: '#swagger-ui'
-            });
-        };
-    </script>
+<script>
+  window.onload = () => {
+    SwaggerUIBundle({ url: 'openapi.yaml', dom_id: '#swagger-ui' });
+  };
+</script>
 </body>
 
 </html>
