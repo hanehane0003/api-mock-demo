@@ -3,7 +3,7 @@
 OpenAPI (YAML/JSON) から **モックJSON** と **MSWハンドラ** を即生成するツールです。  
 バックエンド未完成でもフロント・E2E テストを先行できる“つなぎ役”を目指しています。
 
-- Live Demo: （デプロイ先URL）
+- Live Demo: https://hanehane0003.github.io/api-mock-demo/
 - Tech: Vue 3 / TypeScript / Vite / Tailwind CSS v4 / @faker-js/faker / js-yaml
 
 ## Why
