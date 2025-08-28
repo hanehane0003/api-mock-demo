@@ -228,16 +228,19 @@ const base = import.meta.env.BASE_URL; // 例: '/api-mock-demo/'
 
 <template>
   <main class="max-w-6xl mx-auto p-4 space-y-4">
-    <!-- ヘッダーにナビを追加 -->
+    <!-- ここを丸ごと差し替え -->
     <div class="flex items-center justify-between">
       <h1 class="text-2xl font-bold">API Mock Generator</h1>
 
-      <!-- リンク -->
-      <nav class="flex gap-3 text-sm">
-        <a :href="base + 'docs/'" target="_blank" rel="noopener" class="underline text-blue-600">
+      <nav class="flex gap-2">
+        <a :href="base + 'docs/'"
+           target="_blank" rel="noopener"
+           class="px-3 py-1.5 rounded bg-blue-500 text-white hover:bg-blue-600">
           API Docs (Swagger)
         </a>
-        <a :href="base + 'docs/redoc.html'" target="_blank" rel="noopener" class="underline text-blue-600">
+        <a :href="base + 'docs/redoc.html'"
+           target="_blank" rel="noopener"
+           class="px-3 py-1.5 rounded bg-slate-600 text-white hover:bg-slate-700">
           API Docs (Redoc)
         </a>
       </nav>
